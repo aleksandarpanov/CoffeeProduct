@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    x:Class="CoffeeProduct.Styles.Colors"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="AppBackgroundColor">#9571B2</Color>
+    <Color x:Key="TitleColor">#9140B9</Color>
+    <Color x:Key="SubTitleColor">#AE674C</Color>
+    <Color x:Key="WhiteColor">#F8F6F9</Color>
+    <Color x:Key="DescriptionColor">#2E1C24</Color>
+    <Color x:Key="PriceColor">#7A18AB</Color>
+    <Color x:Key="AlternateColor">#C9989C</Color>
+    <Color x:Key="AlternateMoreProductsTitleColor">#1C6647</Color>
+    <Color x:Key="AlternateMoreProductsPriceColor">#29815E</Color>
+    <Color x:Key="QuantityColor">#77508E</Color>
+</ResourceDictionary>

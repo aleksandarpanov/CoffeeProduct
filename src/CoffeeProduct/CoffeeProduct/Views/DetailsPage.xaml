@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CoffeeProduct.Views.DetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:CoffeeProduct.Utils"
+    xmlns:pancakeview="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+    xmlns:viewModel="clr-namespace:CoffeeProduct.ViewModels"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:DataType="viewModel:DetailsPageViewModel"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="*, 140, 75, 64">
+        <pancakeview:PancakeView Padding="0" CornerRadius="0, 0, 12, 12">
+            <Image
+                sharedTransitions:Transition.Name="PlaceImage"
+                Aspect="AspectFill"
+                Source="{Binding SelectedItem.Image}" />
+        </pancakeview:PancakeView>
+        <StackLayout Grid.Row="1" Margin="24">
+            <Label Style="{StaticResource DetailsProductTitleStyle}" Text="{Binding SelectedItem.Title}" />
+            <Label Style="{StaticResource DetailsProductSubTitleStyle}" Text="{Binding SelectedItem.SubTitle}" />
+            <Label Style="{StaticResource DetailsDescriptionStyle}" Text="{Binding SelectedItem.LongDescription}" />
+        </StackLayout>
+        <StackLayout
+            Grid.Row="2"
+            Margin="24,20"
+            Orientation="Horizontal"
+            VerticalOptions="Center">
+            <Label Style="{StaticResource DetailsPriceTagStyle}" Text="{Binding SelectedItem.Price, StringFormat='{0:C0}'}" />
+            <Frame
+                Padding="0"
+                BorderColor="{StaticResource QuantityColor}"
+                CornerRadius="4"
+                HasShadow="False"
+                HeightRequest="40"
+                HorizontalOptions="EndAndExpand"
+                WidthRequest="160">
+                <Grid ColumnDefinitions="3*, 5*, 3*">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Command="{Binding MinusCommand}"
+                        Text="-" />
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource QuantityStyle}"
+                        Text="{Binding Quantity}" />
+                    <Button
+                        Grid.Column="2"
+                        BackgroundColor="Transparent"
+                        Command="{Binding PlusCommand}"
+                        Text="+" />
+                </Grid>
+            </Frame>
+        </StackLayout>
+
+        <Grid
+            Grid.Row="3"
+            Margin="24,0,24,12"
+            ColumnDefinitions="48, 20, *">
+            <Button
+                BackgroundColor="{StaticResource AppBackgroundColor}"
+                CornerRadius="4"
+                FontFamily="Icons"
+                FontSize="16"
+                HeightRequest="48"
+                HorizontalOptions="Center"
+                Text="{Static icons:IconFont.IconShoppingCart}"
+                TextColor="{x:StaticResource WhiteColor}"
+                VerticalOptions="Center"
+                WidthRequest="48" />
+            <Button
+                Grid.Column="2"
+                BackgroundColor="{StaticResource AppBackgroundColor}"
+                CornerRadius="4"
+                FontAttributes="Bold"
+                FontFamily="JosefinSans-Bold"
+                FontSize="18"
+                Text="Add to Cart"
+                TextColor="{StaticResource WhiteColor}"
+                TextTransform="None" />
+        </Grid>
+    </Grid>
+</ContentPage>

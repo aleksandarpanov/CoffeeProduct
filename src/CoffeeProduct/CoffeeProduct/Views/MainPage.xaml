@@ -1,11 +1,216 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CoffeeProduct.Views.MainPage"
-             Title="{Binding Title}">
+<ContentPage
+    x:Class="CoffeeProduct.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:CoffeeProduct.Utils"
+    xmlns:models="clr-namespace:CoffeeProduct.Models"
+    xmlns:sharedTransitions="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+    Title="{Binding Title}">
+    <ContentPage.Resources>
+        <DataTemplate x:Key="EvenTemplate" x:DataType="models:Coffee">
+            <Frame
+                Padding="0"
+                CornerRadius="24"
+                HasShadow="False"
+                WidthRequest="250">
+                <Grid BackgroundColor="{StaticResource WhiteColor}" RowDefinitions="*, auto, auto">
+                    <Image
+                        sharedTransitions:Transition.Group="{Binding Id, Mode=OneWay}"
+                        sharedTransitions:Transition.Name="PlaceImage"
+                        Aspect="AspectFill"
+                        Source="{Binding Image}" />
+                    <StackLayout
+                        Grid.Row="1"
+                        Margin="16,0"
+                        HeightRequest="100">
+                        <Label Style="{x:StaticResource AlternateProductTitleStyle}" Text="{Binding Title, Mode=OneWay}" />
+                        <Label Style="{x:StaticResource ProductSubTitleStyle}" Text="{Binding SubTitle, Mode=OneWay}" />
+                        <Label Style="{x:StaticResource DescriptionStyle}" Text="{Binding Description, Mode=OneWay}" />
+                    </StackLayout>
+                    <Grid
+                        Grid.Row="2"
+                        Margin="16,0,16,16"
+                        ColumnDefinitions="8*, 2*">
+                        <Label Style="{x:StaticResource AlternatePriceTagStyle}" Text="{Binding Price, StringFormat='{0:C0}'}" />
+                        <Button
+                            Grid.Column="1"
+                            BackgroundColor="{x:StaticResource AlternateColor}"
+                            CornerRadius="8"
+                            FontFamily="Icons"
+                            FontSize="12"
+                            HeightRequest="32"
+                            HorizontalOptions="Center"
+                            Text="{x:Static icons:IconFont.IconShoppingCart}"
+                            VerticalOptions="Center"
+                            WidthRequest="32" />
+                    </Grid>
+                </Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="CommonStates">
+                        <VisualState Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="White" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Frame>
+        </DataTemplate>
+        <DataTemplate x:Key="OddTemplate" x:DataType="models:Coffee">
+            <Frame
+                Padding="0"
+                CornerRadius="24"
+                HasShadow="False"
+                WidthRequest="250">
+                <Grid BackgroundColor="{x:StaticResource WhiteColor}" RowDefinitions="*, auto, auto">
+                    <Image Aspect="AspectFill" Source="{Binding Image, Mode=OneWay}" />
+                    <StackLayout
+                        Grid.Row="1"
+                        Margin="16,0"
+                        HeightRequest="100">
+                        <Label Style="{x:StaticResource ProductTitleStyle}" Text="{Binding Title, Mode=OneWay}" />
+                        <Label Style="{x:StaticResource ProductSubTitleStyle}" Text="{Binding SubTitle, Mode=OneWay}" />
+                        <Label Style="{x:StaticResource DescriptionStyle}" Text="{Binding Description, Mode=OneWay}" />
+                    </StackLayout>
+                    <Grid
+                        Grid.Row="2"
+                        Margin="16,0,16,16"
+                        ColumnDefinitions="8*, 2*">
+                        <Label Style="{x:StaticResource PriceTagStyle}" Text="{Binding Price, StringFormat='{0:C0}', Mode=OneWay}" />
+                        <Button
+                            Grid.Column="1"
+                            BackgroundColor="{x:StaticResource AppBackgroundColor}"
+                            CornerRadius="8"
+                            FontFamily="Icons"
+                            FontSize="12"
+                            HeightRequest="32"
+                            HorizontalOptions="Center"
+                            Text="{x:Static icons:IconFont.IconShoppingCart}"
+                            VerticalOptions="Center"
+                            WidthRequest="32" />
+                    </Grid>
+                </Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="CommonStates">
+                        <VisualState Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="White" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Frame>
+        </DataTemplate>
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+        <DataTemplate x:Key="FirstTemplate" x:DataType="models:Coffee">
+            <Frame
+                Padding="0"
+                BackgroundColor="{StaticResource WhiteColor}"
+                CornerRadius="8">
+                <Grid RowDefinitions="*, auto">
+                    <Image Aspect="AspectFill" Source="{Binding Image, Mode=OneWay}" />
+                    <StackLayout
+                        Grid.Row="1"
+                        Margin="4,8"
+                        Spacing="0">
+                        <Label Style="{StaticResource MoreProductsTitleStyle}" Text="{Binding Title, Mode=OneWay}" />
+                        <Label Style="{StaticResource MoreProducsPriceTagStyle}" Text="{Binding Price, StringFormat='Price: {0:C0}', Mode=OneWay}" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </DataTemplate>
+
+        <DataTemplate x:Key="OthersTemplate" x:DataType="models:Coffee">
+            <Frame
+                Padding="0"
+                BackgroundColor="{StaticResource WhiteColor}"
+                CornerRadius="8">
+                <Grid RowDefinitions="*, auto">
+                    <Image Aspect="AspectFill" Source="{Binding Image, Mode=OneWay}" />
+                    <StackLayout
+                        Grid.Row="1"
+                        Margin="4,8"
+                        Spacing="0">
+                        <Label Style="{StaticResource AlternateMoreProducsTitleStyle}" Text="{Binding Title, Mode=OneWay}" />
+                        <Label Style="{StaticResource AlternateMoreProducsPriceTagStyle}" Text="{Binding Price, StringFormat='Price: {0:C0}', Mode=OneWay}" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </DataTemplate>
+
+        <icons:ItemTemplateSelector
+            x:Key="CoffeeSelector"
+            EvenTemplate="{StaticResource EvenTemplate}"
+            OddTemplate="{StaticResource OddTemplate}" />
+
+        <icons:MoreCoffeeItemTemplateSelector
+            x:Key="MoreCoffeeSelector"
+            FirstTemplate="{StaticResource FirstTemplate}"
+            OthersTemplate="{StaticResource OthersTemplate}" />
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="{StaticResource AppBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <!--  All products Label  -->
+        <Label
+            Margin="24,24"
+            Style="{StaticResource TitleStyle}"
+            Text="All Products" />
+        <!--  Shopping Cart  -->
+        <Button
+            Grid.Column="1"
+            BackgroundColor="{x:StaticResource WhiteColor}"
+            CornerRadius="8"
+            FontFamily="Icons"
+            FontSize="16"
+            HeightRequest="48"
+            HorizontalOptions="Center"
+            Text="{Static icons:IconFont.IconShoppingCart}"
+            TextColor="{x:StaticResource PriceColor}"
+            VerticalOptions="Center"
+            WidthRequest="48" />
+        <!--  Products List  -->
+        <CollectionView
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Margin="24,0,0,0"
+            HeightRequest="432"
+            ItemSizingStrategy="MeasureFirstItem"
+            ItemTemplate="{x:StaticResource CoffeeSelector}"
+            ItemsSource="{Binding MainCoffees}"
+            SelectedItem="{Binding SelectedItem}"
+            SelectionMode="Single">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="20" Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+        <Label
+            Grid.Row="2"
+            Margin="24,8,0,0"
+            Style="{x:StaticResource MoreProductHeaderTitleStyle}"
+            Text="More Products" />
+        <CollectionView
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Margin="24,12,0,12"
+            HeightRequest="160"
+            ItemSizingStrategy="MeasureFirstItem"
+            ItemTemplate="{x:StaticResource MoreCoffeeSelector}"
+            ItemsSource="{Binding OtherCoffees}">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="24" Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+    </Grid>
 
 </ContentPage>

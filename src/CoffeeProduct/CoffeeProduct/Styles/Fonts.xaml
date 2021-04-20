@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    x:Class="CoffeeProduct.Styles.Fonts"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--<Style x:Key="TitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="29" />
+        <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+    </Style>-->
+
+    <Style x:Key="TitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="29" />
+        <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+    </Style>
+
+    <Style x:Key="ProductTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="TextColor" Value="{StaticResource TitleColor}" />
+    </Style>
+
+    <Style x:Key="DetailsProductTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="TextColor" Value="{StaticResource TitleColor}" />
+    </Style>
+
+    <Style x:Key="AlternateProductTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="TextColor" Value="{StaticResource AlternateColor}" />
+    </Style>
+
+    <Style x:Key="ProductSubTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="TextColor" Value="{StaticResource SubTitleColor}" />
+    </Style>
+
+    <Style x:Key="DetailsProductSubTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{StaticResource SubTitleColor}" />
+    </Style>
+
+    <Style x:Key="DescriptionStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Regular" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="TextColor" Value="{StaticResource DescriptionColor}" />
+    </Style>
+
+    <Style x:Key="DetailsDescriptionStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Regular" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource DescriptionColor}" />
+        <Setter Property="LineHeight" Value="1.5" />
+    </Style>
+
+    <Style x:Key="PriceTagStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="{StaticResource PriceColor}" />
+    </Style>
+
+    <Style x:Key="DetailsPriceTagStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="26" />
+        <Setter Property="TextColor" Value="{StaticResource PriceColor}" />
+    </Style>
+
+    <Style x:Key="AlternatePriceTagStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor" Value="{StaticResource AlternateColor}" />
+    </Style>
+
+
+    <Style x:Key="MoreProductHeaderTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+    </Style>
+
+    <Style x:Key="MoreProductsTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="TextColor" Value="{StaticResource TitleColor}" />
+    </Style>
+
+    <Style x:Key="MoreProducsPriceTagStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="8" />
+        <Setter Property="TextColor" Value="{StaticResource TitleColor}" />
+    </Style>
+
+    <Style x:Key="AlternateMoreProducsTitleStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="TextColor" Value="{StaticResource AlternateMoreProductsTitleColor}" />
+    </Style>
+
+    <Style x:Key="AlternateMoreProducsPriceTagStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="8" />
+        <Setter Property="TextColor" Value="{StaticResource AlternateMoreProductsPriceColor}" />
+    </Style>
+
+    <Style x:Key="QuantityStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="JosefinSans-Bold" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="{StaticResource QuantityColor}" />
+    </Style>
+
+    <Style x:Key="QuantityPlusMinutStyle" TargetType="Label">
+        <Setter Property="FontFamily" Value="Regular" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" Value="{StaticResource QuantityColor}" />
+    </Style>
+
+</ResourceDictionary>
